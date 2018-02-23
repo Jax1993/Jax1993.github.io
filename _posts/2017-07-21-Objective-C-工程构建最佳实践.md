@@ -1,3 +1,16 @@
+
+---
+layout:     post
+title:      "Objective-C 工程构建最佳实践"
+subtitle:   "Objective-C 工程构建最佳实践"
+date:       2017-02-23 12:00:00
+author:     "你看那朵乌云儿"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - iOS 开发
+---
+
 希望看到这篇文章的初学者能少走一点弯路.   
 后续会整理分享 MVP 写法, 解决 VIewController 代码庞大杂糅问题.  
 欢迎讨论.
