@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "Hello 2015"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2015-01-29 12:00:00
+author:     "Hux"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 生活
+---
+
+> “Yeah It's on. ”
 
 **我们写代码, 要让自己和别人更好地 Copy**.   
 所以, 良好的编程习惯是必要的. 而且, 严格遵循优秀的编码规范也能够很大程度上提高自己的开发效率, 很多细枝末节的东西你不再需要花时间去考虑, 前人已经写下了最佳实践.  
