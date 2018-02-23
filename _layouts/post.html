@@ -2,46 +2,49 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="/js/prettify/prettify.css" />
-<style type="text/css">
-    body { background:#e8e8e8; }
-    @media screen and (max-width: 750px){
-        body { background:#fff; }
-    }
-    @media screen and (max-width: 1020px){
-        body { background:#fff; }
-    }
-</style>
-
-<div id="content">
-    <div class="entry">
-        <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
-        <p class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</p>
-        {{ content }}
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% else %}
+<header class="masthead">
+{% endif %}
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ page.title }}</h1>
+          {% if page.subtitle %}
+          <h2 class="subheading">{{ page.subtitle }}</h2>
+          {% endif %}
+          <span class="meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            on {{ page.date | date: '%B %d, %Y' }}</span>
+        </div>
+      </div>
     </div>
+  </div>
+</header>
 
-    <div class="sidenav">
-        <h2>Blog</h2>
-        <ul class="artical-list">
-        {% for post in site.categories.blog%}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
 
-        <h2>Dump</h2>
-        <ul class="artical-list">
-        {% for post in site.categories.dump%}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
+      {{ content }}
 
-        <h2>Project</h2>
-        <ul class="artical-list">
-        {% for post in site.categories.project%}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
+      <hr>
+
+      <div class="clearfix">
+
+        {% if page.previous.url %}
+        <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline"> Post</span></a>
+        {% endif %}
+        {% if page.next.url %}
+        <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline"> Post</span> &rarr;</a>
+        {% endif %}
+
+      </div>
+
     </div>
+  </div>
 </div>
-
-<script src="/js/post.js" type="text/javascript"></script>

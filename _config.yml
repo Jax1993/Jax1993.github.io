@@ -1,11 +1,18 @@
-auto: true
+title:             你看那朵乌云儿
+email:             185772455@qq.com
+description:       走在天上，走在寂静里，而阴茎倒挂下来.
+author:            你看那朵乌云儿
+url:               "https://Jax1993.github.io"
 
-#markdown: rdiscount
-highlighter: 'pygments'
-#paginate: 8
-permalink: /:title
+# Social Profiles
+twitter_username:  wangjh
+github_username:   Jax1993
+facebook_username: wangjh2333
 
-title: Jax Blog
-url: https://Jax1993.github.io
-feed: /atom.xml
-author_info: <a href="http://Jax1993.github.io/">Mukosame</a>
+# Build settings
+markdown:          kramdown
+paginate:          5
+paginate_path:     "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
