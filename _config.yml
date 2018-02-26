@@ -12,8 +12,8 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # SNS settings
 RSS: false
-weibo_username:     你看那朵乌云儿
-zhihu_username:     王二
+weibo_username:     3128048007
+zhihu_username:     wang-er-9-77
 github_username:    Jax1993
 twitter_username:   Wjh2333
 #facebook_username:  wjh
