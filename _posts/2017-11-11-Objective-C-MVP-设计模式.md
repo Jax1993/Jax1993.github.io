@@ -28,7 +28,7 @@ MVP: 即 M--Model, V--View, P--Presenter. Model 层主要封装了数据模型, 
 
 ### 示例代码
 	//ViewController.m 文件
-	//实现 Presenter 的代理协议, 强引用 presenter, 并初始化
+	//实现 Presenter 的代理协议, 强引用 presenter, 并初始化  
 	@interface FZIndexViewController () <
 	FZIndexPresenterDelegate,
 	>
@@ -51,7 +51,7 @@ MVP: 即 M--Model, V--View, P--Presenter. Model 层主要封装了数据模型, 
     [super viewDidLoad];
     
     [self setupUI];
-    //调用 Presenter 的方法来进行网络加载
+    //调用 Presenter 的方法来进行网络加载  
     [self.presenter loadData];
     }
 	
