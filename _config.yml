@@ -87,18 +87,30 @@ service-worker: true
 # Friends
 friends: [
     {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
         title: "Pornhub",
         href: "https://www.pornhub.com"
-    },{
+    },
+    {
         title: "XVideo",
         href: "https://www.xvideos.com"
-    },{
+    },
+    {
+        title: "91porn",
+        href: "http://91porn.com/index.php"
+    },
+    {
+        title: "xnxx",
+        href: "https://www.xnxx.com"
+    },
+    {
+        title: "xhamster",
+        href: "https://xhamster.com"
+    },
+    {
         title: "ObjC 中国",
         href: "https://www.objccn.io"
-    },{
+    },
+    {
         title: "Hi-Mike",
         href: "https://hi-mike.github.io"
     }
