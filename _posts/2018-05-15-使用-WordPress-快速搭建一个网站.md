@@ -2,7 +2,7 @@
 layout:     post
 title:      "使用 WordPress 快速搭建一个网站"
 subtitle:   "使用 WordPress 快速搭建一个网站"
-date:       2017-05-15 12:00:00
+date:       2018-05-15 12:00:00
 author:     "你看那朵乌云儿"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
