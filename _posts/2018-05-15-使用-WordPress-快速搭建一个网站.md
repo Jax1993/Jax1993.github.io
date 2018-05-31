@@ -1,11 +1,21 @@
-# 使用 WordPress 快速搭建一个网站
+---
+layout:     post
+title:      "使用 WordPress 快速搭建一个网站"
+subtitle:   "使用 WordPress 快速搭建一个网站"
+date:       2017-05-15 12:00:00
+author:     "你看那朵乌云儿"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 其他
+---
 
 ## WordPress 简介
 WordPress 是一个以 PHP 和 MySQL 为平台的自由开源的博客软件和内容管理系统。WordPress 具有插件架构和模板系统。 Alexa 排行前100万的网站中有超过16.7%的网站使用 WordPress。 WordPress 有丰富的模板类型, 我们可以使用它来快速搭建一个个人博客或者公司官网.
 
 ## 准备工作
 
-服务器 + 域名
+购买服务器和域名
 
 ## 流程
 
@@ -44,4 +54,26 @@ Mac FTP 用法:
 	Terminal => shell, 新建远程连接 => sftp, 输入服务器用户名和 IP
 	=> 在打开的终端输入密码 => 执行命令 put local-file [remote-file]
 
+
+## HTTPS
+
+Let’s Encrypt 可以提供免费的 HTTPS 授权, 使用也非常简单. 使用 [Certbot](https://certbot.eff.org/) 几分钟就可以轻松搞定 HTTPS. 需要注意的是, 在服务器部署好了 HTTPS 之后, 需要在 WordPress 后台-Setting-General 设置一下 WordPress Address 和 Site Address.  
+
+### 踩坑
+
+**从 HTTPS 恢复 HTTP**
+
+如果你希望仍然使用 HTTP 访问你的网站, 也就是说你在服务器移除掉了 HTTPS 证书. 因为 WordPress 之前的 Site Address 还是设置的 HTTPS, 所以就算你在浏览器输入 HTTP 也会自动301重定向到 HTTPS. 因为此时服务器已经没有证书, 所以网站打不开, 也无法进入后台.
+
+**解决方案**
+
+WordPress 的配置信息都在数据库, 我们可以通过服务器修改数据库, 从而解决这个 bug. 不同的主题具体数据库结构可能会有所不同, 但应该都能够通过清晰的命名来识别对应的表和字段. 举个栗子:  
+
+登录服务器 => 登录 MySQL => 找到 wp_options
+	
+	mysql -u root -p
+	use wordpress;
+	show tables;
+	select * from wp_options limit 10;
+	update wp_options set option_value = "http://www.tokenall.io" where option_name = "siteurl";
 
