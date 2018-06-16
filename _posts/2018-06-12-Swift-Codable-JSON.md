@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Swift Codable 协议解析 JSON"
+title:      "Swift4 使用 Codable 协议实现 JSON 解析"
 date:       2018-06-12 12:00:00
 author:     "你看那朵乌云儿"
 header-img: "img/post-bg-2015.jpg"
@@ -9,11 +9,11 @@ tags:
     - Swift
 ---
 
-开发中与网络交互, 或者存储数据到磁盘等操作, 这些操作通常都要求对传输的数据进行编码和解码. JSON 是最常用的数据编码方式.   
+开发中经常需要与网络交互, 或者存储数据到磁盘, 这些操作通常都要求对传输的数据进行编码和解码. JSON 是其中最常用的数据编码方式.   
 
-虽然已经有很多第三方类库实现了 JSON 解析, 但是使用体验真的比较糟糕.  
-Apple 终于在 Swift 4 的 Foundation 的模块中添加了对 JSON 解析的原生支持.    
-这篇文章主要介绍如何使用 Swift 4 的 Codable 协议实现 JSON - Model 的转换.
+虽然已经有很多第三方类库实现了 JSON 解析, 但是使用体验真的比较糟糕. 这与 Swift 的可选值有关. 明明很简单的数据模型转换却变得很棘手, 通常都需要比较繁杂的处理. 
+幸运的是, Apple 终于在 Swift 4 的 Foundation 的模块中添加了对 JSON 解析的原生支持.    
+这篇文章就主要介绍一下如何使用 Swift 4 的 Codable 协议实现 JSON - Model 转换.
 
 Codable 协议是 Encodable 和 Decodable 的 type alias. 声明如下:   
 	
@@ -127,7 +127,7 @@ Codable 协议是 Encodable 和 Decodable 的 type alias. 声明如下:
 
 ## JSON 要求属性定义必须是可选, 但我不要
 
-JSON 要求属性定义必须是可选, 但我不并不想要这个属性成为可选属性. 不必要的可选属性会给程序设计带来不必要的麻烦.
+JSON 要求属性定义必须是可选, 即 JSON 中没有返回模型中定义的全部键值. 这样的话, 我们不得不在队形的模型中设置相关的属性为可选. 但我不并不想要这个属性成为可选属性, 因为在我的程序中会根据语义为该字段赋值. 不必要的可选属性会给程序设计带来不必要的麻烦.
 
 	struct BookFromApi: Codable {
    		let id: Int
@@ -146,5 +146,5 @@ JSON 要求属性定义必须是可选, 但我不并不想要这个属性成为�
 	//转换, 为部分属性提供默认值
 	let book = Book(id: bookFromAPI.id, name: bookFromAPI.name, price: 12.11)
 	
-上述做法比较奇葩, 但是目前很好地解决了我遇到的问题.
+上述做法, 定义了一个专门用来做 JSON 转换的类型, 然后用该类型的对象去初始化本来的需要转化的类型对象. 虽然很奇葩, 但是目前, 这个方法很好地解决了我遇到的问题.
 
