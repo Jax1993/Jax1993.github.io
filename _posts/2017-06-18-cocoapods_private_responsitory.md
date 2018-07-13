@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "公共代码管理 -- CocoaPods 私有库的创建"
-date:       2018-06-29 12:00:00
+date:       2017-06-18 12:00:00
 author:     "你看那朵乌云儿"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
