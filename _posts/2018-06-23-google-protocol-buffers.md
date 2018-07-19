@@ -11,7 +11,9 @@ tags:
 
 # Protocol buffers 
 
-[Protocol buffers](https://developers.google.com/protocol-buffers/) 是 Google 开发的一套语言无关, 平台无关, 可拓展的对象序列化机制. 类似于 XML, JSON, 但是更快, 更小, 更简单. 定义了数据结构之后, 便可以用多种语言的特定代码去读和写这些结构化的数据.
+[Protocol buffers](https://developers.google.com/protocol-buffers/) 是 Google 开发的一套语言无关, 平台无关, 可拓展的对象序列化机制. 类似于 XML, JSON, 但是更快, 更小, 更简单. 定义了数据结构之后, 便可以用多种语言的特定代码去读和写这些结构化的数据.  
+不同于 JSON 和 XML等, Protocol buffers 的数据结构需要提前定义在 .proto 文件中, 使用过程中不同端需要协调定义的一致性.  
+目前有2和3两个独立版本的语法, 就像 Python. 真是讨厌啊. 倾向于使用3, 就像 Python. 手动二哈吐舌头.
 
 # Swift Protobuf
 
@@ -48,6 +50,8 @@ using CocoaPods
 如果没有报错的话, 会生成与之对应的 Swift 文件, 这些文件定义了 Struct 结构和相关操作. 将这些文件添加到工程中.
 
 ### Usage
+
+序列化和反序列化示例:
 
 	let info0 = BookInfo.with {
 		$0.id = 1735
