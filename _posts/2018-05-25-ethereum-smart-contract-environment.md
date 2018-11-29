@@ -60,8 +60,18 @@ Truffle 集成开发环境 + Ganache 私链GUI + zeppelin 合约标准库 + Inte
 Truffle 是一个以太坊智能合约开发框架，利用它可以方便地生成项目模板、编译合约、部署合约到区块链、测试合约等等. Truffle 是一个 Node.js 模块，因此要先安装 Node.js.  
 
 	npm install -g truffle
+	
+新建项目文件夹, 使用 Truffle 初始化项目
+
+	mkdir XXX
+	cd XXX
 	truffle init
 
+编译智能合约, 部署到测试网络
+
+	truffle compile
+	truffle migrate
+	truffle test
 
 ### Ganache
 
@@ -79,7 +89,7 @@ IntelliJ IDEA 一般用来作为 JAVA 开发的编译器, 装上 Solidity 插件
 
 ### MetaMask
 
-MetaMask 是一款在谷歌浏览器Chrome上使用的插件类型的以太坊钱包.
+MetaMask 是一款在谷歌浏览器 Chrome上 使用的插件类型的以太坊钱包.
 
 
 
