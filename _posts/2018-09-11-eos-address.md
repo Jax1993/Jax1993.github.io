@@ -8,18 +8,12 @@ catalog: true
 tags:
     - 区块链
 ---
-
-	let hdPrivateKey = try hdKeyChain.derivedKey(path: "m/44'/0'/0'/0/0")
-	let data_0x80 = Data(hex: "80")
-	let row = hdPrivateKey.raw
-	let check = Crypto.sha256sha256(data_0x80 + row).prefix(4)
-	let wif = Base58.encode(data_0x80 + row + check)
-       
+      
 ### 私钥
      
 私钥的本质是一个随机数, 这在之前的文章中已经提到过. 比特币私钥空间的大小是 2^256，这是一个非常大的数字。用十进制表示的话，大约是 10^77，而可见宇宙被估计只含有 10^80 个原子。
 
-> 通常, 私钥以 Base58 校验和编码格式显示，这种私钥格式被称为钱包导入格式（WIF，Wallet Import Format）。
+> 通常, 为了便于查看和导入导出, 私钥以 Base58 校验和编码格式显示，这种私钥格式被称为钱包导入格式（WIF，Wallet Import Format）。
 
 
 EOS 私钥编码格式和 Bitcoin 的非压缩格式私钥编码完全一致.
