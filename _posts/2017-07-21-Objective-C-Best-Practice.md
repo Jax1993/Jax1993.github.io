@@ -7,7 +7,7 @@ author:     "你看那朵乌云儿"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - iOS 开发
+    - iOS
 ---
 
 希望看到这篇文章的初学者能少走一点弯路.   

@@ -7,7 +7,7 @@ author:     "你看那朵乌云儿"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - iOS 开发
+    - iOS
 ---
 
 从某种意义上来说, 我们写代码, 要让自己和别人更好地 Copy.  
