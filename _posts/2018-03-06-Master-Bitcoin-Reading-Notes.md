@@ -4,7 +4,7 @@ title:      "精通比特币学习笔记"
 subtitle:   "精通比特币学习笔记"
 date:       2018-03-06 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/the-sea.jpg"
 catalog: true
 tags:
     - 区块链

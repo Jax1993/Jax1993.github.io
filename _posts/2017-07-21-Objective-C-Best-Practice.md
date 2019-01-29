@@ -4,7 +4,7 @@ title:      "Objective-C 工程构建最佳实践"
 subtitle:   "Objective-C 工程构建最佳实践"
 date:       2017-02-23 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/the-sea.jpg"
 catalog: true
 tags:
     - iOS

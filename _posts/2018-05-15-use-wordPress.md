@@ -4,7 +4,7 @@ title:      "快速搭建一个网站 -- WordPress 的使用 "
 subtitle:   "使用 WordPress 快速搭建一个网站"
 date:       2018-05-15 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/the-sea.jpg"
 catalog: true
 tags:
     - 其他

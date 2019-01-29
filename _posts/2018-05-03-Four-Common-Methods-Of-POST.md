@@ -4,7 +4,7 @@ title:      "四种常见的 POST 提交数据方式"
 subtitle:   "未来已经来临, 只是尚未流行"
 date:       2018-05-03 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/the-sea.jpg"
 catalog: true
 tags:
     - Swift

@@ -3,7 +3,7 @@ layout:     post
 title:      "EOS 的私钥和地址"
 date:       2018-09-11 15:31:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/solar-system.jpg"
 catalog: true
 tags:
     - 区块链
