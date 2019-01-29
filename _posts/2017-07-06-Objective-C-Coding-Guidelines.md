@@ -4,7 +4,7 @@ title:      "Objective-C 编码规范"
 subtitle:   "Objective-C 编码规范"
 date:       2017-02-23 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/the-sea.jpg"
+header-img: "img/solar-system.jpg"
 catalog: true
 tags:
     - iOS

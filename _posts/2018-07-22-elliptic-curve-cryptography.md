@@ -3,7 +3,7 @@ layout:     post
 title:      "比特币的基石 -- 椭圆曲线密码学"
 date:       2018-07-22 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/black-hole.jpg"
 catalog: true
 tags:
     - 区块链

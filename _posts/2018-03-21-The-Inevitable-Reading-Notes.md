@@ -4,7 +4,7 @@ title:      "《必然》读书笔记"
 subtitle:   "未来已经来临, 只是尚未流行"
 date:       2018-03-16 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/solar-system.jpg"
 catalog: true
 tags:
     - 读书

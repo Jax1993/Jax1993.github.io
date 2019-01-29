@@ -3,7 +3,7 @@ layout:     post
 title:      "精通比特币 -- 交易细节, 解锁脚本和锁定脚本"
 date:       2018-07-10 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/space.jpg"
 catalog: true
 tags:
     - 区块链

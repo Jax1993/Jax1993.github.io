@@ -4,7 +4,7 @@ title:      "以太坊智能合约开发环境配置"
 subtitle:   "以太坊智能合约开发环境配置"
 date:       2018-05-25 12:00:00
 author:     "你看那朵乌云儿"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/solar-system.jpg"
 catalog: true
 tags:
     - 区块链
