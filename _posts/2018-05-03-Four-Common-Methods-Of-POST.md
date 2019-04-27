@@ -19,12 +19,14 @@ HTTP/1.1 协议规定的 HTTP 请求方法有 OPTIONS、GET、HEAD、POST、PUT�
 
 	<entity-body>
 	
-协议规定 POST 提交的数据必须放在消息主体（entity-body）中，但协议并没有规定数据必须使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。
+协议规定 POST 提交的数据必须放在消息主体（entity-body）中，但协议并没有规定数据必须使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。  
+
+以下介绍几个常用的编码方式。
 
 
 ## application/x-www-form-urlencoded
 
-这应该是最常见的 POST 提交数据的方式了。浏览器的原生 <form> 表单，如果不设置 enctype 属性，那么最终就会以 application/x-www-form-urlencoded 方式提交数据。请求类似于下面这样
+这应该是最常见的 POST 提交数据的方式了。浏览器的原生 <form> 表单，如果不设置 enctype 属性，那么最终就会以 application/x-www-form-urlencoded 方式提交数据。在服务端，比如 spring， 也是默认以这种方式处理请求。请求类似于下面这样
 
 	POST http://www.example.com HTTP/1.1
 	Content-Type: application/x-www-form-urlencoded;charset=utf-8
@@ -71,7 +73,7 @@ application/json 这个 Content-Type 作为响应头大家肯定不陌生。实�
 
 ## 附: 在 HTTP Header 中添加参数
 
-可以直接在 HTTP header 中添加参数.  
+可以直接在 HTTP header 中添加参数。常用来处理身份验证。
 
 **AFNetworking**:  
 
