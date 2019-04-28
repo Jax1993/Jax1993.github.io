@@ -14,27 +14,27 @@ tags:
 
 首先整体地了解一下比特币交易的数据结构. 一个比特币交易, 包含一个或多个 UTXO 作为输入, 一个交易目的地址的 UTXO 输出, 通常还包括一个找零 UTXO 输出. 总输入减去总输出的部分作为手续费奖励给矿工. 以下是相关的数据结构定义示例:  
 
-	public struct Transaction {
-		public let version: Int32
-		public let txInCount: VarInt
-		public let inputs: [TransactionInput]
-		public let txOutCount: VarInt
-		public let outputs: [TransactionOutput]
-		public let lockTime: UInt32
+    public struct Transaction {
+        public let version: Int32
+        public let txInCount: VarInt
+        public let inputs: [TransactionInput]
+        public let txOutCount: VarInt
+        public let outputs: [TransactionOutput]
+        public let lockTime: UInt32
     }
     
-	public struct TransactionInput {
-		public let previousOutput: TransactionOutPoint
-		public let scriptLength: VarInt
-		public let signatureScript: Data
-		public let sequence: UInt32
-	}
-	
-	public struct TransactionOutput {
-		public let value: Int64
-		public let scriptLength: VarInt
-		public let lockingScript: Data
-	}
+    public struct TransactionInput {
+        public let previousOutput: TransactionOutPoint
+        public let scriptLength: VarInt
+        public let signatureScript: Data
+        public let sequence: UInt32
+    }
+    
+    public struct TransactionOutput {
+        public let value: Int64
+        public let scriptLength: VarInt
+        public let lockingScript: Data
+    }
 
 ## 构建过程
 
@@ -59,32 +59,47 @@ tags:
 
 省略了 UTXO 和 私钥查询, 解锁脚本的 Swift 实现如下:
 
-	////循环构建每一个解锁脚本, 注意每一次的 transaction 都不一样哦
+    ////循环构建每一个解锁脚本, 注意每一次的 transaction 都不一样哦
 
-	//签名类型,一般是 0x01000000
-	var value_SIGHASH_ALL = UInt32(Signature.SIGHASH_ALL).littleEndian
-	let data_signature_SIGHASH_ALL = Data(buffer: UnsafeBufferPointer(start: &value_SIGHASH_ALL, count: 1))
-	//原始交易 hash
-	let _txHash = Crypto.sha256sha256(_tx.serialized() + data_signature_SIGHASH_ALL)
-	//使用 UTXO 对应的私钥对原始交易签名
-	let signature: Data = try? Crypto.sign(_txHash, privateKey: privateKey)
-	//编码类型 0x01
-	var value_SIGHASH_ALL_8 = UInt8(Signature.SIGHASH_ALL).littleEndian
-	let data_signature_SIGHASH_ALL_8 = Data(buffer: UnsafeBufferPointer(start: &value_SIGHASH_ALL_8, count: 1))
-	//公钥
-	let utxoPublicKey = hdprivateKey.publicKey()
-	var utxoPublicKey_raw_count = UInt8(utxoPublicKey.raw.count)
-	let data_utxoPublicKey_raw_count = Data(buffer: UnsafeBufferPointer(start: &utxoPublicKey_raw_count, count: 1))
-	//解锁脚本
-	let unlockingScript: Data = Data([UInt8(signature.count + 1)]) + signature + data_signature_SIGHASH_ALL_8 + data_utxoPublicKey_raw_count + utxoPublicKey.raw
+    //签名类型,一般是 0x01000000
+    var value_SIGHASH_ALL = UInt32(Signature.SIGHASH_ALL).littleEndian
+    let data_signature_SIGHASH_ALL = Data(buffer: UnsafeBufferPointer(start: &value_SIGHASH_ALL, count: 1))
+    //原始交易 hash
+    let _txHash = Crypto.sha256sha256(_tx.serialized() + data_signature_SIGHASH_ALL)
+    //使用 UTXO 对应的私钥对原始交易签名
+    let signature: Data = try? Crypto.sign(_txHash, privateKey: privateKey)
+    //编码类型 0x01
+    var value_SIGHASH_ALL_8 = UInt8(Signature.SIGHASH_ALL).littleEndian
+    let data_signature_SIGHASH_ALL_8 = Data(buffer: UnsafeBufferPointer(start: &value_SIGHASH_ALL_8, count: 1))
+    //公钥
+    let utxoPublicKey = hdprivateKey.publicKey()
+    var utxoPublicKey_raw_count = UInt8(utxoPublicKey.raw.count)
+    let data_utxoPublicKey_raw_count = Data(buffer: UnsafeBufferPointer(start: &utxoPublicKey_raw_count, count: 1))
+    //解锁脚本
+    let unlockingScript: Data = Data([UInt8(signature.count + 1)]) + signature + data_signature_SIGHASH_ALL_8 + data_utxoPublicKey_raw_count + utxoPublicKey.raw
 
 ### 交易输出的锁定脚本
 
 TransactionOutput 的 lockingScript字段是**锁定脚本**.  
 锁定脚本是一个放置在输出上面的花费条件：它指定了今后花费这笔输出必须要满足的条件。锁定脚本往往含有一个公钥或比特币地址(公钥哈希值).
+**特别注意的是，Pay2ScriptHash 和 Pay2PublicKeyHash 的算法是有区别的。**
 
-	let toPubKeyHash = Base58.decode(toAddress).dropFirst().dropLast(4)
-	let lockingScript = Script.buildPublicKeyHashOut(pubKeyHash: toPubKeyHash)
+    let toPubKeyHash = Base58.decode(toAddress).dropFirst().dropLast(4)
+    let lockingScript = Script.buildPublicKeyHashOut(pubKeyHash: toPubKeyHash)
+    
+    //Script.swift
+  
+    // Standard Transaction to Bitcoin address (pay-to-pubkey-hash)  
+    public static func buildPublicKeyHashOut(pubKeyHash: Data) -> Data {
+       let tmp: Data = Data() + OpCode.OP_DUP + OpCode.OP_HASH160 +         UInt8(pubKeyHash.count) + pubKeyHash + OpCode.OP_EQUALVERIFY
+       return tmp + OpCode.OP_CHECKSIG
+    }
+    
+    // Pay2ScriptHash
+    public static func buildScriptHashOut(pubKeyHash: Data) -> Data {
+        var tmp = Data() + OP_HASH160 + OP_0 + pubKeyHash + OP_EQUAL
+        return tmp
+    }
 
 
 
