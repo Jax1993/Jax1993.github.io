@@ -1,7 +1,6 @@
-
 ---
 layout:     post
-title:      "科学上网"
+title:      "一个程序猿的基本素养--科学上网"
 date:       2019-04-28 15:31:00
 author:     "你看那朵乌云儿"
 header-img: "img/black-hole.jpg"
