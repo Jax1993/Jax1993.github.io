@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "人间词话 -- 王国维"
+title:      "《人间词话》"
 date:       2019-02-09 15:31:00
 author:     "你看那朵乌云儿"
 header-img: "img/black-hole.jpg"
