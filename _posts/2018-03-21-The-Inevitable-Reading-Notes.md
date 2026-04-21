@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "《必然》读书笔记"
+title:      "《必然》"
 subtitle:   "未来已经来临, 只是尚未流行"
 date:       2018-03-16 12:00:00
 author:     "你看那朵乌云儿"
